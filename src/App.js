@@ -10,6 +10,12 @@ class App extends Component {
       list : this.list
     }
   }
+  deletar(id){
+    this.list.splice(this.list.find(c => c.id === id));
+    this.setState({
+      list : this.list
+    })
+  }
   create(model){
     this.list.push(model);
     this.setState({
@@ -20,7 +26,7 @@ class App extends Component {
     return (
     <section>
       <HatForms create={this.create.bind(this)} />
-      <HatList list={this.state.list} />
+      <HatList list={this.state.list} deletar={this.deletar.bind(this)} />
     </section>
    );
   }

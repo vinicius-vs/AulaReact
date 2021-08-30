@@ -1,4 +1,6 @@
 import { Component } from "react";
+import {ReactComponent as DeleteIcom} from "../Assets/img/delete.svg"
+
 class HatList extends Component {
     list;
     constructor(props) {
@@ -6,6 +8,14 @@ class HatList extends Component {
         this.list = props.list;
         console.log(this.list)
     }
+
+    handlerDelete(id, event){
+        event.stopPropagation();
+        event.preventDefault();
+        this.props.deletar(id);
+
+    }
+
     render() {
         return (
             <section>
@@ -15,6 +25,7 @@ class HatList extends Component {
                             <th>ID</th>
                             <th>Estilos</th>
                             <th>Cor</th>
+                            <th> </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,6 +35,7 @@ class HatList extends Component {
                                 <td>{e.id}</td>
                                 <td>{e.estilo}</td>
                                 <td>{e.cor}</td>
+                                <td><DeleteIcom onClick={this.handlerDelete.bind(this,e.id)} /></td>
                             </tr>
                         )}
                     </tbody>
