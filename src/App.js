@@ -20,7 +20,7 @@ class App extends Component {
     return (
     <section>
       <HatForms create={this.create.bind(this)} />
-      <HatList list={this.list} />
+      <HatList list={this.state.list} />
     </section>
    );
   }
