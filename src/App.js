@@ -1,6 +1,7 @@
 import { Component } from "react";
 import HatForms from "./components/HatForms";
 import HatList from "./components/HatList";
+import ListCor from "./components/HatCorList"
 
 class App extends Component {
   list = []
@@ -25,7 +26,10 @@ class App extends Component {
   render (){
     return (
     <section>
+      <ListCor />
+      <hr />
       <HatForms create={this.create.bind(this)} />
+      <hr />
       <HatList list={this.state.list} deletar={this.deletar.bind(this)} />
     </section>
    );

@@ -8,14 +8,11 @@ class HatList extends Component {
         this.list = props.list;
         console.log(this.list)
     }
-
     handlerDelete(id, event){
         event.stopPropagation();
         event.preventDefault();
         this.props.deletar(id);
-
     }
-
     render() {
         return (
             <section>

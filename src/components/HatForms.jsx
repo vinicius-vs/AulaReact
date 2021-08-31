@@ -22,7 +22,6 @@ class HatForms extends Component {
         event.preventDefault();
         this.props.create(hat);
     }
-
     render() {
         return (
 
@@ -38,7 +37,7 @@ class HatForms extends Component {
                         id="estilo"
                         onChange={this.handlerInputEstilo.bind(this)}></input>
                     <label htmlFor="cor">Cor</label><input
-                        type="text"
+                        type=""
                         id="cor"
                         onChange={this.handlerInputCor.bind(this)}
                     ></input>
