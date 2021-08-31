@@ -23,10 +23,15 @@ class HatForms extends Component {
         event.stopPropagation();
     }
     handlerSalvar(event) {
+        if(this.cor == null && this.listCor[0]!=null){
+            this.cor = this.listCor[0];
+        }
         let hat = { "id": this.id, "estilo": this.estilo, "cor": this.cor }
         event.stopPropagation();
         event.preventDefault();
         this.props.create(hat);
+        document.getElementById("secId").value = document.getElementById("opId").value;
+       
     }
     render() {
         return (
@@ -47,9 +52,10 @@ class HatForms extends Component {
                         id="cor"
                         onChange={this.handlerInputCor.bind(this)}
                     ></input> */}
-                    <select onChange={this.handlerInputCor.bind(this)}>
+                    <select id="secId" defaultValue="default" onChange={this.handlerInputCor.bind(this)} >
+                        <option id="opId" value="default" disabled>Selecione um valor</option>
                         {this.listCor.map((e,k) =>
-                        <option key={k} value={e}>{e}</option>
+                        <option  key={k} value={e}>{e}</option>
                         )}
                     </select>
                     <button id="btSalvar">Salvar</button>

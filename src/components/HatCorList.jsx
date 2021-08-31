@@ -14,7 +14,7 @@ class ListCor extends Component {
         return (
             <section >
                 <form >
-                    <label >Cor</label><input type="text" onKeyPress={this.handlerinputCor.bind(this)} />
+                    <label >Cor</label><input type="text" onKeyDown={this.handlerinputCor.bind(this)} />
                 </form>
             </section>
         )

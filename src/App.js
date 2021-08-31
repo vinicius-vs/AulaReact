@@ -21,7 +21,7 @@ class App extends Component {
 
   }
   deletar(id){
-    this.list.splice(this.list.find(c => c.id === id),1);
+    this.list.splice(this.list.findIndex(c => c.id === id),1);
     this.setState({
       list : this.list
     })
