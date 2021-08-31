@@ -5,11 +5,20 @@ import ListCor from "./components/HatCorList"
 
 class App extends Component {
   list = []
+  corList = []
   constructor(){
     super();
     this.state = {
-      list : this.list
+      list : this.list,
+      listCor : this.corList
     }
+  }
+  inserirCor(cor){
+    this.corList.push(cor);
+    this.setState({
+      listCor : this.corList
+    })
+
   }
   deletar(id){
     this.list.splice(this.list.find(c => c.id === id),1);
@@ -26,9 +35,9 @@ class App extends Component {
   render (){
     return (
     <section>
-      <ListCor />
+      <ListCor inserirCor={this.inserirCor.bind(this)}/>
       <hr />
-      <HatForms create={this.create.bind(this)} />
+      <HatForms create={this.create.bind(this)} listaCor={this.state.listCor} />
       <hr />
       <HatList list={this.state.list} deletar={this.deletar.bind(this)} />
     </section>

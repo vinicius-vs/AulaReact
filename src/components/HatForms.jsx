@@ -4,6 +4,11 @@ class HatForms extends Component {
     id;
     estilo;
     cor;
+    listCor;
+    constructor(props){
+        super(props);
+        this.listCor = props.listaCor
+    }
     handlerInputId(event) {
         this.id = event.target.value;
         event.stopPropagation();
@@ -14,6 +19,7 @@ class HatForms extends Component {
     }
     handlerInputCor(event) {
         this.cor = event.target.value;
+
         event.stopPropagation();
     }
     handlerSalvar(event) {
@@ -36,11 +42,16 @@ class HatForms extends Component {
                         type="text"
                         id="estilo"
                         onChange={this.handlerInputEstilo.bind(this)}></input>
-                    <label htmlFor="cor">Cor</label><input
+                    {/* <label htmlFor="cor">Cor</label><input
                         type=""
                         id="cor"
                         onChange={this.handlerInputCor.bind(this)}
-                    ></input>
+                    ></input> */}
+                    <select onChange={this.handlerInputCor.bind(this)}>
+                        {this.listCor.map((e,k) =>
+                        <option key={k} value={e}>{e}</option>
+                        )}
+                    </select>
                     <button id="btSalvar">Salvar</button>
                 </form>
             </section>

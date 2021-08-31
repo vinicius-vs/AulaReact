@@ -6,7 +6,6 @@ class HatList extends Component {
     constructor(props) {
         super(props);
         this.list = props.list;
-        console.log(this.list)
     }
     handlerDelete(id, event){
         event.stopPropagation();
